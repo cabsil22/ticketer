@@ -1,0 +1,16 @@
+####################
+### local routes ###
+####################
+
+### Get all customers
+GET http://localhost:8080/customers/
+
+### post new customer
+POST http://localhost:8080/customers/
+
+
+### Get all Tickets
+GET http://localhost:8080/tickets/
+
+### post new Tickets
+POST http://localhost:8080/tickets/
