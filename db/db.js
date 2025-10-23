@@ -1,5 +1,4 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const DB_NAME = process.env.DB_NAME;
 let _db;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -34,6 +33,8 @@ async function test_connection(client) {
 }
 
 const initDb = () => {
+    const DB_NAME = process.env.DB_NAME;
+
   if (_db) {
     return _db
   }

@@ -7,6 +7,14 @@ GET http://localhost:8080/customers/
 
 ### post new customer
 POST http://localhost:8080/customers/
+Content-Type: application/json
+
+{   
+    "firstName": "Tom",
+    "lastName": "Kester",
+    "email": "TomKester@notreal.email"
+
+}
 
 
 ### Get all Tickets
@@ -14,3 +22,45 @@ GET http://localhost:8080/tickets/
 
 ### post new Tickets
 POST http://localhost:8080/tickets/
+Content-Type: application/json
+
+{   
+    "subject": "Problem with computer",
+    "customerId": "68fa7b718c343811715c781c"
+    
+}
+
+
+
+
+####################
+### public routes ###
+####################
+
+### Get all customers
+GET https://ticketer-71yh.onrender.com/customers/
+
+### post new customer
+POST https://ticketer-71yh.onrender.com/customers/
+Content-Type: application/json
+
+{   
+    "firstName": "Tom",
+    "lastName": "Kester",
+    "email": "TomKester@notreal.email"
+
+}
+
+
+### Get all Tickets
+GET https://ticketer-71yh.onrender.com/tickets/
+
+### post new Tickets
+POST https://ticketer-71yh.onrender.com/tickets/
+Content-Type: application/json
+
+{   
+    "subject": "Problem with computer",
+    "customerId": "68fa7b718c343811715c781c"
+    
+}
