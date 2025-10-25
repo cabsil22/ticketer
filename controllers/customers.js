@@ -56,16 +56,18 @@ async function updateCustomer(req, res) {
     required: false,
   } */
   customerId = req.params.id
+  console.log(customerId)
   data = req.body;
 
-  const collection = initDb().collection("Contacts");
-  console.log("Contacts model create: ", data);
-  const newDocument = await collection.insertOne({$set: data});
+  const collection = initDb().collection("Customers");
+  console.log("Customer model update: ", data);
+  newDocument = await collection.updateOne({"_id": new ObjectId(customerId)}, {$set: data})
+
   if (newDocument.acknowledged) {
-    res.send(newDocument.insertedId);
+    res.send(newDocument);
   }
   else {
-    res.send("Insert or Update customer failed to update or insert doc.");
+    res.send("Update customer failed");
 
   }
 
@@ -75,7 +77,20 @@ async function updateCustomer(req, res) {
 async function deleteCustomer(req, res) {
   // #swagger.tags = ['Customers']
   // #swagger.description = 'Delete a customer.'
-  res.send("Insert or Update customer.");
+  customerId = req.params.id
+  console.log(customerId)
+
+  const collection = initDb().collection("Customers");
+  console.log("Customer model delete id: ", customerId);
+  result = await collection.deleteOne({"_id": new ObjectId(customerId)})
+
+  if (result) {
+    res.send(result);
+  }
+  else {
+    res.send("Delete customer failed");
+
+  }
 }
 
 module.exports = {

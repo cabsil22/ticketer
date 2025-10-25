@@ -16,26 +16,25 @@ Content-Type: application/json
 
 }
 
-
-### Get all Tickets
-GET http://localhost:8080/tickets/
-
-### post new Tickets
-POST http://localhost:8080/tickets/
+### update customer by id
+PUT http://localhost:8080/customers/68fa7a81548cb7d417ae9eb6
 Content-Type: application/json
 
 {   
-    "subject": "Problem with computer",
-    "customerId": "68fa7b718c343811715c781c"
-    
+    "firstName": "Beth",
+    "lastName": "Kester",
+    "email": "BethKester@notreal.email"
+
 }
 
-
+### delete customer
+DELETE http://localhost:8080/customers/68fa7a81548cb7d417ae9eb6
 
 
 ####################
 ### public routes ###
 ####################
+
 
 ### Get all customers
 GET https://ticketer-71yh.onrender.com/customers/
@@ -45,22 +44,26 @@ POST https://ticketer-71yh.onrender.com/customers/
 Content-Type: application/json
 
 {   
-    "firstName": "Tom",
-    "lastName": "Kester",
-    "email": "TomKester@notreal.email"
+    "firstName": "Willy",
+    "lastName": "Wonka",
+    "email": "unrealemaiL@tom.email"
 
 }
 
 
-### Get all Tickets
-GET https://ticketer-71yh.onrender.com/tickets/
-
-### post new Tickets
-POST https://ticketer-71yh.onrender.com/tickets/
+### update customer by id
+PUT http://localhost:8080/customers/68fa7a81548cb7d417ae9eb6
 Content-Type: application/json
 
 {   
-    "subject": "Problem with computer",
-    "customerId": "68fa7b718c343811715c781c"
-    
+    "firstName": "Beth",
+    "lastName": "Kester",
+    "email": "BethKester@notreal.email"
+
 }
+
+### delete customer
+DELETE http://localhost:8080/customers/68fa7a81548cb7d417ae9eb6
+
+
+
