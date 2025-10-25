@@ -1,5 +1,6 @@
 const { initDb } = require("../db/db");
 const { ObjectId } = require("mongodb");
+const { validateCustomer } = require("../validators/customers");
 const collectionName = "Customers";
 
 async function allCustomers(req, res) {
@@ -33,19 +34,21 @@ async function insertCustomer(req, res) {
   } */
   data = req.body;
 
+  validation = validateCustomer(data);
+  if (!validation.valid) {
+    res.send(validation.error);
+    return;
+  }
+
   const collection = initDb().collection(collectionName);
   console.log("Customer controller create: ", data);
   const newDocument = await collection.insertOne(data);
   if (newDocument.acknowledged) {
     res.send(newDocument.insertedId);
-  }
-  else {
+  } else {
     res.send("Insert or Update customer failed to update or insert doc.");
-
   }
-
 }
-
 
 async function updateCustomer(req, res) {
   // #swagger.tags = ['Customers']
@@ -55,41 +58,44 @@ async function updateCustomer(req, res) {
     description: 'ID of the Customer',
     required: false,
   } */
-  customerId = req.params.id
-  console.log(customerId)
+  customerId = req.params.id;
+  console.log(customerId);
   data = req.body;
+
+  validation = validateCustomer(data);
+  if (!validation.valid) {
+    res.send(validation.error);
+    return;
+  }
 
   const collection = initDb().collection("Customers");
   console.log("Customer model update: ", data);
-  newDocument = await collection.updateOne({"_id": new ObjectId(customerId)}, {$set: data})
+  newDocument = await collection.updateOne(
+    { _id: new ObjectId(customerId) },
+    { $set: data }
+  );
 
   if (newDocument.acknowledged) {
     res.send(newDocument);
-  }
-  else {
+  } else {
     res.send("Update customer failed");
-
   }
-
 }
-
 
 async function deleteCustomer(req, res) {
   // #swagger.tags = ['Customers']
   // #swagger.description = 'Delete a customer.'
-  customerId = req.params.id
-  console.log(customerId)
+  customerId = req.params.id;
+  console.log(customerId);
 
   const collection = initDb().collection("Customers");
   console.log("Customer model delete id: ", customerId);
-  result = await collection.deleteOne({"_id": new ObjectId(customerId)})
+  result = await collection.deleteOne({ _id: new ObjectId(customerId) });
 
   if (result) {
     res.send(result);
-  }
-  else {
+  } else {
     res.send("Delete customer failed");
-
   }
 }
 
@@ -98,5 +104,5 @@ module.exports = {
   insertCustomer,
   getCustomer,
   deleteCustomer,
-  updateCustomer
+  updateCustomer,
 };

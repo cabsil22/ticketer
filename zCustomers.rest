@@ -11,13 +11,13 @@ Content-Type: application/json
 
 {   
     "firstName": "Tom",
-    "lastName": "Kester",
+    "lastName": "Kesterson",
     "email": "TomKester@notreal.email"
 
 }
 
 ### update customer by id
-PUT http://localhost:8080/customers/68fa7a81548cb7d417ae9eb6
+PUT http://localhost:8080/customers/68fbb22168b908668012bda0
 Content-Type: application/json
 
 {   
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 ### delete customer
-DELETE http://localhost:8080/customers/68fa7a81548cb7d417ae9eb6
+DELETE http://localhost:8080/customers/68fa7b718c343811715c781c
 
 
 ####################
@@ -52,18 +52,18 @@ Content-Type: application/json
 
 
 ### update customer by id
-PUT http://localhost:8080/customers/68fa7a81548cb7d417ae9eb6
+PUT https://ticketer-71yh.onrender.com/customers/68fcfe522bac584742d8d864
 Content-Type: application/json
 
 {   
     "firstName": "Beth",
     "lastName": "Kester",
-    "email": "BethKester@notreal.email"
+    "email": "BethKester22@notreal.email"
 
 }
 
 ### delete customer
-DELETE http://localhost:8080/customers/68fa7a81548cb7d417ae9eb6
+DELETE https://ticketer-71yh.onrender.com/customers/68fbb22168b908668012bda0
 
 
 

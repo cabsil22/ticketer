@@ -1,5 +1,6 @@
 const { initDb } = require("../db/db");
 const { ObjectId } = require("mongodb");
+const { validateTicket } = require("../validators/tickets");
 const collectionName = "Tickets";
 
 async function allTickets(req, res) {
@@ -34,6 +35,12 @@ async function updateTicket(req, res) {
   ticketId = req.params.id;
   data = req.body;
 
+    validation = validateTicket(data);
+  if (!validation.valid) {
+    res.send(validation.error);
+    return;
+  }
+
   const collection = initDb().collection("Tickets");
   console.log("Tickets model update: ", data);
   const newDocument = await collection.updateOne(
@@ -51,6 +58,12 @@ async function insertTicket(req, res) {
   // #swagger.tags = ['Tickets']
   // #swagger.description = 'Create or update a ticket.'
   data = req.body;
+
+    validation = validateTicket(data);
+  if (!validation.valid) {
+    res.send(validation.error);
+    return;
+  }
 
   const collection = initDb().collection(collectionName);
   console.log("Tickets controller create: ", data);
