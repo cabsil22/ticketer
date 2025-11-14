@@ -9,7 +9,22 @@ const doc = {
   },
   host: HOST_PATH,
   schemes: ['https', 'http'],
-  basePath: '/'
+  basePath: '/',
+
+  components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: "http",
+        scheme: "bearer",
+        bearerFormat: "JWT"
+      }
+    }
+  },
+
+  security: [
+    {"bearerAuth": []}
+  ]
+  
 };
 
 const outputFile = './swagger-output.json';

@@ -2,12 +2,15 @@
 ### local routes ###
 ####################
 
+
 ### Get all customers
 GET http://localhost:8080/customers/
+Authorization: Bearer {{authToken}}
 
 ### post new customer
 POST http://localhost:8080/customers/
 Content-Type: application/json
+Authorization: Bearer {{authToken}}
 
 {   
     "firstName": "Tom",
@@ -19,6 +22,7 @@ Content-Type: application/json
 ### update customer by id
 PUT http://localhost:8080/customers/68fbb22168b908668012bda0
 Content-Type: application/json
+Authorization: Bearer {{authToken}}
 
 {   
     "firstName": "Beth",
@@ -29,6 +33,7 @@ Content-Type: application/json
 
 ### delete customer
 DELETE http://localhost:8080/customers/68fa7b718c343811715c781c
+Authorization: Bearer {{authToken}}
 
 
 ####################
@@ -38,10 +43,12 @@ DELETE http://localhost:8080/customers/68fa7b718c343811715c781c
 
 ### Get all customers
 GET https://ticketer-71yh.onrender.com/customers/
+Authorization: Bearer {{authToken}}
 
 ### post new customer
 POST https://ticketer-71yh.onrender.com/customers/
 Content-Type: application/json
+Authorization: Bearer {{authToken}}
 
 {   
     "firstName": "Willy",
@@ -52,18 +59,19 @@ Content-Type: application/json
 
 
 ### update customer by id
-PUT https://ticketer-71yh.onrender.com/customers/68fcfe522bac584742d8d864
+PUT https://ticketer-71yh.onrender.com/customers/68fcffd62bac584742d8d865
 Content-Type: application/json
+Authorization: Bearer {{authToken}}
 
 {   
     "firstName": "Beth",
-    "lastName": "Kester",
-    "email": "BethKester22@notreal.email"
+    
+    "email": "BethKester55@notreal.com"
 
 }
 
 ### delete customer
-DELETE https://ticketer-71yh.onrender.com/customers/68fbb22168b908668012bda0
-
+DELETE https://ticketer-71yh.onrender.com/customers/68fcfe522bac584742d8d864
+Authorization: Bearer {{authToken}}
 
 

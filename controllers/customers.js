@@ -36,7 +36,7 @@ async function insertCustomer(req, res) {
 
   validation = validateCustomer(data);
   if (!validation.valid) {
-    res.send(validation.error);
+    res.status(400).send(validation.error);
     return;
   }
 
