@@ -2,8 +2,7 @@ const environment = require("dotenv").config("../.env");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 
-const mongoDBURI = process.env.CONNECTION_STRING;
-
+const mongoDBURI = process.env.CONNECTION_STRING 
 mongoose.connect(mongoDBURI);
 
 const UserSchema = new mongoose.Schema({

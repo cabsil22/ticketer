@@ -8,14 +8,14 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {   
-    "subject": "Problem with computer",
+    "subject": "Problem with Tablet",
     "customerId": "68fa7b718c343811715c781c",
     "assetID": "12348512",
     "description": "It wont turn on or do anything.",
     "priority": "urgent",
     "ticketType": "computer",
-    "requestedCompletion": "Tomorrow at Noon",
-    "assignedTech": "Tom",
+    "requestedCompletion": "Next Friday at Noon",
+    "assignedTech": "Frank",
     "internalDoc": "http://docs.localhost.com/customerName/computer1234",
     "dateCreated": "01/01/2001",
     "dateCompleted": "01/01/2021"
@@ -36,7 +36,7 @@ Authorization: Bearer {{authToken}}
 
 
 ### Delete Ticket
-DELETE http://localhost:8080/tickets/68fbb22f68b908668012bda1
+DELETE http://localhost:8080/tickets/68fd2b04848458d6bec1e3e0
 Authorization: Bearer {{authToken}}
 
 ####################
