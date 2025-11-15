@@ -3,7 +3,7 @@ const validateTicket = (ticket) => {
   let valid = false;
   let error = "";
 
-  if (!ticket.subject || !ticket.customerId || ticket.description) {
+  if (!ticket.subject || !ticket.customerId || !ticket.description) {
     return {
         valid: valid,
         error: "Missing data. subject, customerId, and descriptions are required."

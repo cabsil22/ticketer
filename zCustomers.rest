@@ -65,7 +65,7 @@ Authorization: Bearer {{authToken}}
 
 {   
     "firstName": "Beth",
-    
+    "lastName": "Kester",
     "email": "BethKester55@notreal.com"
 
 }
